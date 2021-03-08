@@ -28,6 +28,11 @@ func routes(app *config.AppConfig) http.Handler {
 	mux.Get("/", handlers.Repo.Home)
 	mux.Get("/about", handlers.Repo.About)
 
+	// For access to static files, image...
+	fileServer := http.FileServer(http.Dir("./static/"))
+	// Strip out /static and use fileServer
+	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))
+
 	return mux
 
 }
