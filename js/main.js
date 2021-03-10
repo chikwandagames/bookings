@@ -29,3 +29,34 @@ const rangepicker = new DateRangePicker(elem, {
   // Change date format
   format: 'yyyy-mm-dd',
 })
+
+
+function notifyAlert(text, type) {
+  notie.alert({
+    type,
+    text,
+  })
+}
+
+
+document.getElementById("colorButton").addEventListener("click", () => {
+  notifyAlert("This is a message", "success")
+})
+
+
+// function errorAlert(msg) {
+//   notie.alert({
+//     type: "error",
+//     text: msg,
+    
+//   })
+// }
+
+
+// function warningAlert(msg) {
+//   notie.alert({
+//     type: "warning",
+//     text: msg,
+    
+//   })
+// }

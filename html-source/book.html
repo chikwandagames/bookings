@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.3/dist/css/datepicker-bs4.min.css">
-    <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.3/dist/css/datepicker-bs4.min.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+  <link rel="stylesheet" href="./styles.css" />
   <title>Document</title>
 </head>
 
@@ -33,7 +34,7 @@
             aria-haspopup="true" aria-expanded="false">
             Rooms
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu mt-2" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="generals.html">General's Quarters</a>
             <a class="dropdown-item" href="majors.html">Major's Suite</a>
           </div>
@@ -50,48 +51,34 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-3"></div> <!--Hack, for centering form -->
+      <div class="col-md-3"></div>
+      <!--Hack, for centering form -->
       <div class="col-md-6">
         <h1 class="mt-5">Search for Reservation</h1>
         <!-- Form -->
         <form action="book.html" method="get" novalidate class="needs-validation">
-          <!-- <div class="form-row">
-            <div class="col">
-              <div class="form-group">
-                <label for="start_date">Start Date</label>
-                <input required type="date" class="form-control" id="start_date" name="start_date"
-                  aria-describedby="startDateHelp" placeholder="" />
-                <small id="emailHelp" class="form-text text-muted">Enter start date in the form YYYY-MM-DD</small>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="end_date">End Date</label>
-                <input required type="date" class="form-control" id="end_date" name="end_date" aria-describedby="endDateHelp"
-                  placeholder="" />
-                <small id="emailHelp" class="form-text text-muted">Enter end date in the form YYYY-MM-DD</small>
-              </div>
-            </div>
-          </div> -->
+
           <div class="form-row">
             <div class="col">
               <div class="form-row" id="reservation-dates">
                 <div class="col">
-                  <input required class="form-control" type="text" name="start" placeholder="Arrival date" autocomplete="off">
+                  <input required class="form-control" type="text" name="start" placeholder="Arrival date"
+                    autocomplete="off">
                 </div>
                 <div class="col">
-                  <input required class="form-control" type="text" name="end" placeholder="Departure date" autocomplete="off">  
+                  <input required class="form-control" type="text" name="end" placeholder="Departure date"
+                    autocomplete="off">
                 </div>
               </div>
             </div>
-        </div>
-    
+          </div>
+
           <button type="submit" class="btn btn-primary mt-3">Search Availability</button>
         </form>
       </div>
-   
-   
-      
+
+
+
     </div>
 
     <div class="row">
@@ -103,7 +90,7 @@
       </div>
     </div>
 
-  
+
   </div>
   <div class="row my-footer">
     <div class="col">Left</div>
@@ -117,8 +104,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
     crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.3/dist/js/datepicker-full.min.js"></script>
-    <script src="../js/main.js"></script>
+
+  <script src="https://unpkg.com/notie"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.3/dist/js/datepicker-full.min.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 
 </html>
