@@ -37,20 +37,20 @@ function notifyAlert(text, type) {
   })
 }
 
-function notifyModal(title, text, icon, button) {
-  swal({
+function notifyModal(title, text, icon, confirmButtonText) {
+  Swal.fire({
     title,
     text,
     icon,
-    button,
+    confirmButtonText,
   })
 }
 
 document.getElementById('colorButton').addEventListener('click', () => {
   // notifyAlert("This is a message", "success")
-  // notifyModal('Title', 'Hello', 'success', 'All good!')
-  attention.toast()
-  console.log(myModule()["success"]())
+  notifyModal('Title', 'Hello', 'success', 'All good!')
+  // attention.toast()
+  // console.log(myModule()["success"]())
 })
 
 const attention = myModule()
