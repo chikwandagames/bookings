@@ -38,9 +38,20 @@ function notifyAlert(text, type) {
   })
 }
 
+function notifyModal(title, text, icon, button) {
+  swal({
+    title,
+    text,
+    icon,
+    button
+  });
+}
 
-document.getElementById("colorButton").addEventListener("click", () => {
-  notifyAlert("This is a message", "success")
+
+document.getElementById("colorButton").addEventListener("click",() => {
+  // notifyAlert("This is a message", "success")
+  notifyModal("Title","Hello", "success","All good!")
+  
 })
 
 
