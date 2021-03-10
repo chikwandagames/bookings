@@ -1,14 +1,31 @@
+;(function () {
+  'use strict'
+  window.addEventListener(
+    'load',
+    function () {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation')
+      // Loop over them and prevent submission
+      Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener(
+          'submit',
+          function (event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+          },
+          false
+        )
+      })
+    },
+    false
+  )
+})()
 
-// let myEll = document.getElementById("myParagraph")
-// myEll.classList.add("redText")
-
-document.getElementById('colorButton').addEventListener('click', () => {
-  let myEl = document.getElementById('myParagraph')
-
-  if (myEl.classList.contains("redText")) {
-    myEl.classList.remove("redText")
-    return
-  }
-  myEl.classList.add('redText')
-  console.log('JavaScript running')
+const elem = document.getElementById('reservation-dates')
+const rangepicker = new DateRangePicker(elem, {
+  // Change date format
+  format: 'yyyy-mm-dd',
 })
