@@ -30,7 +30,6 @@ const rangepicker = new DateRangePicker(elem, {
   format: 'yyyy-mm-dd',
 })
 
-
 function notifyAlert(text, type) {
   notie.alert({
     type,
@@ -43,31 +42,33 @@ function notifyModal(title, text, icon, button) {
     title,
     text,
     icon,
-    button
-  });
+    button,
+  })
 }
 
-
-document.getElementById("colorButton").addEventListener("click",() => {
+document.getElementById('colorButton').addEventListener('click', () => {
   // notifyAlert("This is a message", "success")
-  notifyModal("Title","Hello", "success","All good!")
-  
+  // notifyModal('Title', 'Hello', 'success', 'All good!')
+  attention.toast()
+  console.log(myModule()["success"]())
 })
 
+const attention = myModule()
 
-// function errorAlert(msg) {
-//   notie.alert({
-//     type: "error",
-//     text: msg,
-    
-//   })
-// }
+// myModule encloses other functions, toast, success... 
+// if we imagine toast or success were thousands of lines of code
+// now we can access these using the var attention above
+function myModule() {
+  const toast = () => {
+    console.log('Clicked button and got toast')
+  }
 
+  const success = () => {
+    console.log('Clicked button and got success')
+  }
 
-// function warningAlert(msg) {
-//   notie.alert({
-//     type: "warning",
-//     text: msg,
-    
-//   })
-// }
+  return {
+    toast,
+    success,
+  }
+}
