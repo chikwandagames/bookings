@@ -24,7 +24,7 @@
   )
 })()
 
-const elem = document.getElementById('reservation-dates')
+const elem = document.getElementById('reservation-dates-modal')
 const rangepicker = new DateRangePicker(elem, {
   // Change date format
   format: 'yyyy-mm-dd',
@@ -46,20 +46,39 @@ function notifyModal(title, text, icon, confirmButtonText) {
   })
 }
 
+const myHTML = `
+    <form id="check-availability-form" action="" method="post" novalidate class="needs-validation">
+      <div class="form-row">
+          <div class="col">
+              <div class="form-row" id="reservation-dates-modal">
+                  <div class="col">
+                      <input disabled required class="form-control" type="text" name="start" id="start" placeholder="Arrival date" autocomplete="off">
+                      </div>
+                  <div class="col">
+                      <input disabled required class="form-control" type="text" name="end" id="end" placeholder="Departure" autocomplete="off">
+                  </div>
+              </div>
+          </div>
+      </div>
+    </form>
+  `
+
+// Testing by clicking a button
 document.getElementById('colorButton').addEventListener('click', () => {
   // notifyAlert("This is a message", "success")
   // notifyModal('Title', 'Hello', 'success', 'All good!')
   // attention.toast({ title: 'Hello world', icon: 'error' })
-  attention.error({ title: 'Oops!' })
+  // attention.error({ title: 'Oops!' })
+  attention.custom({ html: myHTML })
   // console.log(myModule()["success"]())
 })
 
-const attention = myModule()
+const attention = alertModule()
 
 // myModule encloses other functions, toast, success...
 // if we imagine toast or success were thousands of lines of code
 // now we can access these using the var attention above
-function myModule() {
+function alertModule() {
   const toast = (c) => {
     // c will be overwritten by the const {} below, i.e. if is c is not specified
     // we use the default values below
@@ -103,10 +122,47 @@ function myModule() {
     })
   }
 
+  const custom = async (c) => {
+    const { title = '', html = '' } = c
+    const { value: formValues } = await Swal.fire({
+      title,
+      html,
+      backdrop: false,
+      focusConfirm: false,
+      showCancelButton: true,
+      // To open date picker
+      willOpen: () => {
+        const elem = document.getElementById('reservation-dates-modal')
+        const rp = new DateRangePicker(elem, {
+          format: 'yyyy-mm-dd',
+          showOnFocus: true,
+        })
+      },
+      preConfirm: () => {
+        return [
+          // Values from myHTML above
+          document.getElementById('start').value,
+          document.getElementById('end').value,
+        ]
+      },
+      didOpen: () => {
+        document.getElementById('start').removeAttribute('disabled')
+        document.getElementById('end').removeAttribute('disabled')
+      }
+    })
+
+    if (formValues) {
+      Swal.fire(JSON.stringify(formValues))
+    }
+  }
 
   return {
     toast,
     success,
-    error
+    error,
+    custom,
   }
 }
+
+// Popup module
+function popupModule() {}

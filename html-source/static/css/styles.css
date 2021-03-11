@@ -30,6 +30,10 @@
   box-shadow: none;
 }
 
+.datepicker {
+  z-index: 10000;
+}
+
 /* To prevent scrolling horizontally */
 /* body {
     overflow-x: hidden !important;
