@@ -1,4 +1,4 @@
-;(function () {
+(function () {
   'use strict'
   window.addEventListener(
     'load',
@@ -65,15 +65,15 @@ const myHTML = `
 
 // Testing by clicking a button
 document.getElementById('colorButton').addEventListener('click', () => {
-  // notifyAlert("This is a message", "success")
+  notifyAlert("This is a message", "success")
   // notifyModal('Title', 'Hello', 'success', 'All good!')
   // attention.toast({ title: 'Hello world', icon: 'error' })
   // attention.error({ title: 'Oops!' })
-  attention.custom({ html: myHTML })
+  // attention.custom({ html: myHTML })
   // console.log(myModule()["success"]())
 })
 
-const attention = alertModule()
+let attention = alertModule()
 
 // myModule encloses other functions, toast, success...
 // if we imagine toast or success were thousands of lines of code

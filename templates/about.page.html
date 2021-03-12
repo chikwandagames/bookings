@@ -6,21 +6,14 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>This is the about page</h1>
-
-      <p>From template data: {{index .StringMap "test" }}</p>
-      <p> if not equal to "", empty str</p>
-       
-    <p>
-        {{if ne (index .StringMap "remote_ip") ""}}
-            Your remote ip address is {{index .StringMap "remote_ip"}}
-        {{else}}
-            I don't know your ip address yet. Visit the <a href="/">home page</a> so I can set it.
-        {{end}}
-    </p>
-   
-
+      <h1>About Page</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <a href="/make-reservation" class="btn btn-success">Check Availability</a>
     </div>
   </div>
 </div>
+
 {{end}}
