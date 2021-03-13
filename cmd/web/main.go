@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/chikwandagames/bookings/pkg/config"
-	"github.com/chikwandagames/bookings/pkg/handlers"
-	"github.com/chikwandagames/bookings/pkg/render"
+	"github.com/chikwandagames/bookings/internal/config"
+	"github.com/chikwandagames/bookings/internal/handlers"
+	"github.com/chikwandagames/bookings/internal/render"
 )
 
 const portNumber = ":8080"

@@ -42,7 +42,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/make-reservation">Book</a>
+                    <a class="nav-link" href="/search-availability">Book</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact</a>
@@ -229,6 +229,7 @@
                         document.getElementById('end').removeAttribute('disabled')
                     }
                 })
+
 
                 if (formValues) {
                     Swal.fire(JSON.stringify(formValues))
